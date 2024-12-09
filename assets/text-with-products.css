@@ -201,6 +201,11 @@
   transition: color 0.2s ease, background-color 0.2s ease;
 }
 
+.product-item .product-details-btn:focus {
+  color: #fff;
+  background-color: #000;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
 
 @media screen and (min-width: 750px) {
   .text-with-products__wrapper--left {
