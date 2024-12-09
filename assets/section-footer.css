@@ -256,6 +256,7 @@
   background: #000;
   color: #fff;
   text-decoration: none;
+  border: 1px solid #fff;
 }
 
 .footer-block--button-inner a:hover {
