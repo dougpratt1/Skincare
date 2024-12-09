@@ -649,7 +649,7 @@
   }
   .footer-block--socials {
     position: absolute;
-    bottom: 50%;
+    bottom: 40%;
     max-width: 170px;
   }
 }
