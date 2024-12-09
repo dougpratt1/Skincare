@@ -74,6 +74,55 @@
   --shadow-visible: var(--media-shadow-visible);
 }
 
+
+/* Light */
+@font-face {
+    font-family: 'DIN Pro Light';
+    src: url('{{ 'DIN Pro Light 300.otf' | asset_url }}') format('opentype');
+    font-weight: 300; /* Light */
+    font-style: normal;
+}
+
+/* Light Italic */
+@font-face {
+    font-family: 'DIN Pro Light Italic';
+    src: url('{{ 'DIN Pro Light Italic 300.otf' | asset_url }}') format('opentype');
+    font-weight: 300; /* Light */
+    font-style: italic;
+}
+
+/* Medium */
+@font-face {
+    font-family: 'DIN Pro Medium';
+    src: url('{{ 'DIN Pro Medium 500.otf' | asset_url }}') format('opentype');
+    font-weight: 500; /* Medium */
+    font-style: normal;
+}
+
+/* Medium Italic */
+@font-face {
+    font-family: 'DIN Pro Medium Italic';
+    src: url('{{ 'DIN Pro Medium Italic 500.otf' | asset_url }}') format('opentype');
+    font-weight: 500; /* Medium */
+    font-style: italic;
+}
+
+/* Regular */
+@font-face {
+    font-family: 'DIN Pro';
+    src: url('{{ 'DIN Pro 400.otf' | asset_url }}') format('opentype');
+    font-weight: 400; /* Regular */
+    font-style: normal;
+}
+
+/* Italic */
+@font-face {
+    font-family: 'DIN Pro Italic';
+    src: url('{{ 'DIN Pro Italic 400.otf' | asset_url }}') format('opentype');
+    font-weight: 400; /* Regular */
+    font-style: italic;
+}
+
 /* base */
 
 .page-width {
@@ -109,6 +158,13 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
   .utility-bar__grid.page-width {
     padding-left: 3.2rem;
     padding-right: 3.2rem;
+  }
+
+  .header {
+    font-family: 'DIN Pro', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;  
   }
 
   .page-width--narrow {
@@ -2248,9 +2304,11 @@ input[type='checkbox'] {
   text-align: center;
   padding: 1rem 0;
   margin: 0;
-  letter-spacing: 0.1rem;
-  min-height: 3.8rem;
-}
+  font-family: 'DIN Pro', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px; 
+  }
 
 .announcement-bar-slider--fade-in-next .announcement-bar__message,
 .announcement-bar-slider--fade-in-previous .announcement-bar__message,
@@ -2562,6 +2620,46 @@ input[type='checkbox'] {
 .header__icon--cart {
   position: relative;
   margin-right: -1.2rem;
+}
+
+.header__icon .header__icon--search-heading, 
+.header__icon .header__account, 
+.header__icon .header__bag {
+  display: none;
+}
+
+.header__icon--account,
+.header__icon--cart {
+  text-decoration: none;
+}
+
+.header__icon--account .svg-wrapper,
+.header__icon--cart .svg-wrapper {
+  display: flex;
+}
+
+@media screen and (min-width: 990px) {
+  .header__icons {
+    gap: 40px;
+  }
+  .header__icon--search {
+    display: flex;
+    gap: 4px;
+    width: 100%;
+    text-decoration: none;
+  }
+  .header__icon--search .svg-wrapper {
+    width: 100%;
+  }
+  .header__icon .header__icon--search-heading, 
+  .header__icon .header__account, 
+  .header__icon .header__bag {
+    display: flex;
+  }
+  .header__icon--account .svg-wrapper, 
+  .header__icon--cart .svg-wrapper {
+    display: none;
+  }
 }
 
 .header__icon--menu[aria-expanded='true']::before {

@@ -1,0 +1,237 @@
+.text-with-products__wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.text-with-products__left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 8rem 2rem;
+}
+
+.text-with-products__heading {
+  font-family: 'DIN Pro Light', sans-serif;
+  font-weight: 300;
+  font-size: 32px;
+  line-height: 42px;
+  margin-top: 0;
+  margin-bottom: 37px;
+}
+
+.text-with-products__text p {
+  font-family: 'DIN Pro Light', sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 22px;
+  margin: 0;
+}
+
+.text-with-products__text p a {
+  font-family: 'DIN Pro Medium', sans-serif;
+  font-weight: 500;
+  color: #000;
+}
+
+.text-with-products__email-wrapper {
+  margin-top: 62px;
+}
+
+.text-with-products__email-wrapper h3 {
+  font-family: 'DIN Pro Light', sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 23px;
+}
+
+.text-with-products-form-wrapper input {
+  font-family: 'DIN Pro', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0.29px;
+}
+
+.text-with-products-checkbox-wrapper label {
+  font-family: 'DIN Pro Light', sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.text-with-products-form-wrapper {
+  margin: 27px 0 26px 0;
+}
+
+.text-with-products-form__field-wrapper {
+  max-width: 361px;
+  width: 100%;
+}
+
+.text-with-products-form__field-wrapper input {
+  background: #000;
+}
+
+.text-with-products-form__field-wrapper label, 
+.text-with-products-form__button.field__button {
+  color: #fff;
+}
+
+.text-with-products-checkbox-wrapper {
+  display: flex;
+  align-items: baseline;
+  gap: 11px;
+  cursor: pointer;
+  position: relative;
+}
+
+.text-with-products__email-wrapper input[type=checkbox] {
+  margin: 0;
+  max-width: 15px;
+  width: 100%;
+  height: 15px;
+  border-radius: 0;
+  border: 1px solid #000;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  outline: none;
+}
+
+.text-with-products-checkbox-wrapper label {
+  max-width: 335px;
+  width: 100%;
+}
+
+.text-with-products__right {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid black;
+}
+
+@media screen and (min-width: 469px) {
+  .text-with-products__right {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    align-items: end;
+  }
+  .text-with-products__right .product-item:nth-child(2),
+  .text-with-products__right .product-item:nth-child(4) {
+    border-left: 1px solid black;
+  }
+}
+
+.text-with-products__right .product-item {
+  min-height: 420px;
+  display: flex;
+  height: 100%;
+  border-top: none;
+}
+
+.product-item .product-details {
+  text-align: center;
+  padding-bottom: 18px;
+}
+
+.product-item .product-item-inner {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-item .product-link {
+  display: flex;
+  width: 100%;
+  text-decoration: none;
+}
+
+.product-item .product-item-img-wrapper {
+  height: 100%;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  padding: 46px 0 38px 0;
+}
+
+.product-details .product-details-title {
+  font-family: 'DIN Pro Light', sans-serif;
+  font-weight: 300;
+  margin-bottom: 5px;
+}
+
+.product-details .product-details-description p {
+  margin: 0;
+  font-family: 'DIN Pro Light', sans-serif;
+  font-weight: 300;
+  color: #000;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.product-details .product-details-price {
+  font-family: 'DIN Pro Medium', sans-serif;
+  font-weight: 500;
+  color: #000;
+  font-size: 14px;
+}
+
+.product-item .product-details-btn {
+  font-family: 'DIN Pro Medium', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  width: 100%;
+  padding: 16px 20px;
+  background: none;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  border-left: none;
+  border-right: none;
+  text-transform: uppercase;
+  letter-spacing: 1.17px;
+  cursor: pointer;
+}
+
+.product-item .product-details-btn:hover {
+  color: #fff;
+  background-color: #000;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+
+@media screen and (min-width: 750px) {
+  .text-with-products__wrapper--left {
+    justify-content: flex-start;
+  }
+  .text-with-products__wrapper--right {
+    justify-content: flex-end;
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .text-with-products__wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid black;
+  }
+  .text-with-products__left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 520px;
+    margin: 0 auto;
+    padding-left: 2rem;
+    padding-bottom: 20rem;
+  }
+  .text-with-products__right {
+    border-top: none;
+  }
+  .text-with-products__right .product-item {
+    border-left: 1px solid black;
+  }
+  .text-with-products__right .product-item:nth-last-child(-n+2) .product-details-btn {
+    border-bottom: none;
+  }
+}

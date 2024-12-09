@@ -58,7 +58,7 @@
     }
   },
   "newsletter": {
-    "label": "Email",
+    "label": "Enter your email address",
     "success": "Thanks for subscribing",
     "button_label": "Subscribe"
   },
@@ -313,7 +313,8 @@
       }
     },
     "footer": {
-      "payment": "Payment methods"
+      "payment": "Payment methods",
+      "socials": "Follow us on social media"
     },
     "featured_blog": {
       "view_all": "View all",

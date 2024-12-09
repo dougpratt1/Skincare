@@ -1,0 +1,245 @@
+{{ 'text-with-products.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="text-with-products__wrapper text-with-products__wrapper--{{ section.settings.desktop_content_position }}">
+  <div class="text-with-products__left">
+    {% for block in section.blocks %}
+      {% case block.type %}
+        {% when 'heading' %}
+            {% if block.settings.heading != blank %}
+              <h1 class="text-with-products__heading">{{ block.settings.heading }}</h1>
+            {% endif %}
+        {% when 'text' %}
+          {% if block.settings.text != blank %}
+            <div class="text-with-products__text">
+              {{ block.settings.text }}
+            </div>
+          {% endif %}
+        {% when 'email' %}
+          <div class="text-with-products__email-wrapper">
+            {% if block.settings.email_header != blank %}
+              <h3>{{ block.settings.email_header }}</h3>
+            {% endif %}
+            <div class="text-with-products-form-wrapper">
+              {% form 'customer', class: 'text-with-products-form' %}
+                <input type="hidden" name="contact[tags]" value="newsletter">
+                <div class="text-with-products-form__field-wrapper">
+                  <div class="field">
+                    <input
+                      id="TextWithProdsForm--{{ section.id }}"
+                      type="email"
+                      name="contact[email]"
+                      class="field__input"
+                      value="{{ form.email }}"
+                      aria-required="true"
+                      autocorrect="off"
+                      autocapitalize="off"
+                      autocomplete="email"
+                      {% if form.errors %}
+                        autofocus
+                        aria-invalid="true"
+                        aria-describedby="Newsletter-error--{{ section.id }}"
+                      {% elsif form.posted_successfully? %}
+                        aria-describedby="Newsletter-success--{{ section.id }}"
+                      {% endif %}
+                      placeholder="{{ 'newsletter.label' | t }}"
+                      required
+                    >
+                    <label class="field__label" for="TextWithProdsForm--{{ section.id }}">
+                      {{ 'newsletter.label' | t }}
+                    </label>
+                    <button
+                      type="submit"
+                      class="text-with-products-form__button field__button"
+                      name="commit"
+                      id="Subscribe"
+                      aria-label="{{ 'newsletter.button_label' | t }}"
+                    >
+                      <span class="svg-wrapper">
+                        {{- 'icon-arrow.svg' | inline_asset_content -}}
+                      </span>
+                    </button>
+                  </div>
+                  {%- if form.errors -%}
+                    <small class="newsletter-form__message form__message" id="Newsletter-error--{{ section.id }}">
+                      <span class="svg-wrapper">
+                        {{- 'icon-error.svg' | inline_asset_content -}}
+                      </span>
+                      {{- form.errors.translated_fields.email | capitalize }}
+                      {{ form.errors.messages.email -}}
+                    </small>
+                  {%- endif -%}
+                </div>
+                {%- if form.posted_successfully? -%}
+                  <h3
+                    class="newsletter-form__message newsletter-form__message--success form__message"
+                    id="Newsletter-success--{{ section.id }}"
+                    tabindex="-1"
+                    autofocus
+                  >
+                    <span class="svg-wrapper">
+                      {{- 'icon-success.svg' | inline_asset_content -}}
+                    </span>
+                    {{- 'newsletter.success' | t }}
+                  </h3>
+                {%- endif -%}
+              {% endform %}
+            </div>
+              <div class="text-with-products-checkbox-wrapper">
+                <input type="checkbox" id="email-checkbox" name="email-checkbox">
+                <label for="email-checkbox">Sign up for our newsletter. We won't pass your details on to any other third parties.</label>
+              </div>
+          </div>
+      {% endcase %}
+    {% endfor %}
+  </div>
+    <div class="text-with-products__right{% if section.settings.columns_mobile == 1 %} column-one{% endif %}">
+    </div>
+</div>
+
+<script>
+// Manually setting this here, this would most likely be set initially by the quiz results.
+localStorage.setItem('quizProducts', JSON.stringify(['ultra-moisturising', 'dian-dao-shui-gao', 'ultra-moisturising', 'dian-dao-shui-gao']));
+
+// Retrieve and parse the array from localStorage
+const productsResults = JSON.parse(localStorage.getItem('quizProducts'));
+
+if (Array.isArray(productsResults)) {
+  productsResults.forEach(handle => {
+    renderProduct(handle);
+  });
+}
+
+// Render product function
+function renderProduct(handle) {
+  fetch(window.Shopify.routes.root + 'products/' + handle + '.js')
+    .then(response => response.json())
+    .then(product => {
+      // Create a container for the product
+      const productDiv = document.createElement('div');
+      productDiv.classList.add('product-item');
+
+      // Format the price in GBP
+      const priceGBP = `£${(product.price / 100).toFixed(2)}`;
+
+      // Populate the product container with the product data
+      productDiv.innerHTML = `
+        <a href="#" class="product-link">
+          <div class="product-item-inner">
+            <div class="product-item-img-wrapper">
+              <img src="${product.images[0]}" alt="${product.title}" />
+            </div>
+            <div class="product-details">
+              <h3 class="product-details-title">${product.title}</h3>
+              <div class="product-details-description">${product.description}</div>
+              <div class="product-details-price">${priceGBP}</div>
+            </div>
+            <button type="submit" class="product-details-btn">Add to bag</button>
+          </div>
+        </a>`;
+
+      // Append the product container to the designated div
+      document.querySelector('.text-with-products__right').appendChild(productDiv);
+    })
+    .catch(error => console.error('Error fetching product:', error));
+}
+</script>
+
+{% schema %}
+{
+  "name": "Text with products",
+  "max_blocks": 3,
+  "class": "text-with-products section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 40
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "Heading",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Text",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    },
+    {
+      "type": "email",
+      "name": "Email form",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Header"
+        },
+        {
+          "type": "text",
+          "id": "email_header",
+          "label": "Email header"
+        },
+        {
+          "type": "richtext",
+          "id": "email_text",
+          "label": "Email text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Text with products"
+    }
+  ]
+}
+{% endschema %}

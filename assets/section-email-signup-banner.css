@@ -32,9 +32,6 @@
 @media screen and (max-width: 749px) {
   .email-signup-banner:not(.banner--mobile-bottom) .banner__box:not(.email-signup-banner__box--no-image) {
     background-color: transparent;
-    --color-foreground: 255, 255, 255;
-    --color-button: 255, 255, 255;
-    --color-button-text: 0, 0, 0;
   }
 }
 
@@ -44,7 +41,8 @@
   }
 
   .banner--desktop-transparent .email-signup-banner__box .field__input {
-    background-color: transparent;
+    background-color: black;
+    color: white;
   }
 
   .banner--desktop-transparent .email-signup-banner__box--no-image .field__input {
@@ -95,4 +93,38 @@
   .banner--content-align-right .newsletter-form__message {
     justify-content: right;
   }
+}
+
+.newsletter-form__field-wrapper .field .field__input {
+  background: #000;
+}
+
+.newsletter-form__field-wrapper .field label, 
+.newsletter-form__field-wrapper .field .newsletter-form__button, 
+.newsletter-form__field-wrapper .field .field__label {
+  color: #fff;
+}
+
+.newsletter-form__field-wrapper .field label, 
+.newsletter-form__field-wrapper .field .field__label {
+  font-family: 'DIN Pro', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.email-signup-banner__box .email-signup-banner__heading {
+  font-family: 'DIN Pro Light', sans-serif;
+  font-weight: 300;
+  font-size: 32px;
+  line-height: 42px;
+  margin-bottom: 7px;
+}
+.email-signup-banner__box .newsletter__subheading {
+  margin-top: 0;
+  margin-bottom: 40px;
+  font-family: 'DIN Pro Light', sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 22px;
 }

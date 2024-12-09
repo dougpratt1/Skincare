@@ -56,7 +56,7 @@
               assign footer_grid_class = 'grid--3-col-tablet'
             elsif section.blocks.size > 6
               assign footer_grid_class = 'grid--4-col-desktop'
-            elsif section.blocks.size > 4
+            elsif section.blocks.size > 5
               assign footer_grid_class = 'grid--3-col-tablet'
             endif
           -%}
@@ -68,7 +68,7 @@
           >
             {%- for block in section.blocks -%}
               <div
-                class="footer-block grid__item{% if block.type == 'link_list' %} footer-block--menu{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                class="footer-block grid__item{% if block.type == 'image' %} footer-block--image{% endif %}{% if block.type == 'link_list' %} footer-block--menu{% endif %}{% if block.type == 'button_link' %} footer-block--button{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
                 {{ block.shopify_attributes }}
                 {% if settings.animations_reveal_on_scroll %}
                   data-cascade
@@ -152,6 +152,11 @@
                       {%- else -%}
                         {{ 'image' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
                       {%- endif -%}
+                    </div>
+                  {% when 'button_link' %}
+                    <div class="footer-block--button-inner">
+                      <h3>{{ block.settings.footer_link_header }}</h3>
+                      <a href="{{ block.settings.footer_link }}">{{ block.settings.footer_link_text }}</a>
                     </div>
                 {%- endcase -%}
               </div>
@@ -242,10 +247,13 @@
             </div>
           {%- endif -%}
 
-          {%- if section.settings.show_social and has_social_icons -%}
-            {%- render 'social-icons', class: 'footer__list-social' -%}
-          {%- endif -%}
-        </div>
+          </div>
+          <div class="footer-block--socials">
+            {%- if section.settings.show_social and has_social_icons -%}
+              <div class="footer-socials-heading">{{ 'sections.footer.socials' | t }}</div>
+              {%- render 'social-icons', class: 'footer__list-social' -%}
+            {%- endif -%}
+          </div>
       </div>
     {%- endunless -%}
   {%- endif -%}
@@ -424,6 +432,27 @@
             }
           ],
           "default": "center"
+        }
+      ]
+    },
+    {
+      "type": "button_link",
+      "name": "Button link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "footer_link_header",
+          "label": "Link header"
+        },
+        {
+          "type": "url",
+          "id": "footer_link",
+          "label": "Link"
+        },
+        {
+          "type": "text",
+          "id": "footer_link_text",
+          "label": "Link text"
         }
       ]
     }

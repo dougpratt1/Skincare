@@ -4,15 +4,61 @@
   "sections": {
     "footer": {
       "type": "footer",
+      "blocks": {
+        "image_qk7c4w": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Bitmap.png",
+            "image_width": 100,
+            "alignment": ""
+          }
+        },
+        "link_list_He44Pc": {
+          "type": "link_list",
+          "settings": {
+            "heading": "About",
+            "menu": "footer"
+          }
+        },
+        "link_list_8DtMnR": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Customer Service",
+            "menu": "customer-service"
+          }
+        },
+        "link_list_W4y7Hx": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Legal",
+            "menu": "legal"
+          }
+        },
+        "button_link_mrYk4z": {
+          "type": "button_link",
+          "settings": {
+            "footer_link_header": "Become a Practitioner",
+            "footer_link": "#",
+            "footer_link_text": "Practioner login"
+          }
+        }
+      },
+      "block_order": [
+        "image_qk7c4w",
+        "link_list_He44Pc",
+        "link_list_8DtMnR",
+        "link_list_W4y7Hx",
+        "button_link_mrYk4z"
+      ],
       "settings": {
         "color_scheme": "scheme-1",
-        "newsletter_enable": true,
+        "newsletter_enable": false,
         "newsletter_heading": "Subscribe to our emails",
-        "enable_follow_on_shop": true,
+        "enable_follow_on_shop": false,
         "show_social": true,
         "enable_country_selector": true,
         "enable_language_selector": true,
-        "payment_enable": true,
+        "payment_enable": false,
         "show_policy": true,
         "margin_top": 0,
         "padding_top": 36,

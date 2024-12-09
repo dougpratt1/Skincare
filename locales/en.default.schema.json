@@ -1951,6 +1951,9 @@
     "main-page": {
       "name": "Page"
     },
+    "skincare-page": {
+      "name": "Skincare"
+    },
     "main-password-footer": {
       "name": "Password footer"
     },
