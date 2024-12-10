@@ -9,7 +9,7 @@
   justify-content: center;
   max-width: 500px;
   margin: 0 auto;
-  padding: 8rem 2rem;
+  padding: 4rem 2rem;
 }
 
 .text-with-products__heading {
@@ -207,15 +207,6 @@
   transition: color 0.2s ease, background-color 0.2s ease;
 }
 
-@media screen and (min-width: 750px) {
-  .text-with-products__wrapper--left {
-    justify-content: flex-start;
-  }
-  .text-with-products__wrapper--right {
-    justify-content: flex-end;
-  }
-}
-
 @media screen and (min-width: 990px) {
   .text-with-products__wrapper {
     display: grid;
@@ -230,6 +221,7 @@
     margin: 0 auto;
     padding-left: 2rem;
     padding-bottom: 20rem;
+    padding-top: 8rem;
   }
   .text-with-products__right {
     border-top: none;
