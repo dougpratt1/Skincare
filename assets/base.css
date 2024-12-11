@@ -74,52 +74,51 @@
   --shadow-visible: var(--media-shadow-visible);
 }
 
-
 /* Light */
 @font-face {
     font-family: 'DIN Pro Light';
-    src: url('{{ 'DIN Pro Light 300.otf' | asset_url }}') format('opentype');
-    font-weight: 300; /* Light */
+    src: url("https://cdn.shopify.com/s/files/1/0908/0871/3480/files/DIN_Pro_Light_300.otf?v=1733874701") format('opentype');
+    font-weight: 300;
     font-style: normal;
 }
 
 /* Light Italic */
 @font-face {
     font-family: 'DIN Pro Light Italic';
-    src: url('{{ 'DIN Pro Light Italic 300.otf' | asset_url }}') format('opentype');
-    font-weight: 300; /* Light */
+    src: url("https://cdn.shopify.com/s/files/1/0908/0871/3480/files/DIN_Pro_Light_Italic_300.otf?v=1733874701") format('opentype');
+    font-weight: 300;
     font-style: italic;
 }
 
 /* Medium */
 @font-face {
     font-family: 'DIN Pro Medium';
-    src: url('{{ 'DIN Pro Medium 500.otf' | asset_url }}') format('opentype');
-    font-weight: 500; /* Medium */
+    src: url("https://cdn.shopify.com/s/files/1/0908/0871/3480/files/DIN_Pro_Medium_500.otf?v=1733874701") format('opentype');
+    font-weight: 500;
     font-style: normal;
 }
 
 /* Medium Italic */
 @font-face {
     font-family: 'DIN Pro Medium Italic';
-    src: url('{{ 'DIN Pro Medium Italic 500.otf' | asset_url }}') format('opentype');
-    font-weight: 500; /* Medium */
+    src: url("https://cdn.shopify.com/s/files/1/0908/0871/3480/files/DIN_Pro_Medium_Italic_500.otf?v=1733874701") format('opentype');
+    font-weight: 500;
     font-style: italic;
 }
 
 /* Regular */
 @font-face {
     font-family: 'DIN Pro';
-    src: url('{{ 'DIN Pro 400.otf' | asset_url }}') format('opentype');
-    font-weight: 400; /* Regular */
+    src: url("https://cdn.shopify.com/s/files/1/0908/0871/3480/files/DIN_Pro_400.otf?v=1733874701") format('opentype');
+    font-weight: 400;
     font-style: normal;
 }
 
 /* Italic */
 @font-face {
     font-family: 'DIN Pro Italic';
-    src: url('{{ 'DIN Pro Italic 400.otf' | asset_url }}') format('opentype');
-    font-weight: 400; /* Regular */
+    src: url("https://cdn.shopify.com/s/files/1/0908/0871/3480/files/DIN_Pro_Italic_400.otf?v=1733874671") format('opentype');
+    font-weight: 400;
     font-style: italic;
 }
 

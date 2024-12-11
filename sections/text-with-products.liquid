@@ -68,7 +68,7 @@
                       id="Subscribe"
                       aria-label="{{ 'newsletter.button_label' | t }}"
                     >
-                      <span class="svg-wrapper">
+                      <span class="svg-wrapper text-width-products-svg-wrapper">
                         {{- 'icon-arrow.svg' | inline_asset_content -}}
                       </span>
                     </button>
@@ -112,7 +112,7 @@
 
 <script>
 // Manually setting this here, this would most likely be set initially by the quiz results.
-localStorage.setItem('quizProducts', JSON.stringify(['ultra-moisturising', 'dian-dao-shui-gao', 'ultra-moisturising', 'dian-dao-shui-gao']));
+localStorage.setItem('quizProducts', JSON.stringify(['ultra-moisturising', 'dian-dao-shui-gao', 'ultra-moisturising-1', 'dian-dao-shui-gao-1']));
 
 // Retrieve and parse the array from localStorage
 const productsResults = JSON.parse(localStorage.getItem('quizProducts'));

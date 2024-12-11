@@ -128,3 +128,9 @@
   font-size: 14px;
   line-height: 22px;
 }
+
+.svg-wrapper.email-svg-wrapper {
+  width: 28px;
+  height: auto;
+  margin-right: 18px;
+}

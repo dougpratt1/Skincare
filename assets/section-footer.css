@@ -31,6 +31,7 @@
 
 .footer-block.grid__item:nth-child(2) ul li a {
   text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 .footer-block.grid__item:nth-child(3) {
